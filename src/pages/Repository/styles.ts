@@ -50,6 +50,7 @@ export const RepositoryInfo = styled.section`
             }
         }
 
+    }
         ul {
             display: flex;
             list-style: none;
@@ -73,7 +74,6 @@ export const RepositoryInfo = styled.section`
                 }
             }
         }
-    }
 `;
 
 export const Issues = styled.div`
