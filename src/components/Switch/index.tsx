@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import { Button, Span, Container } from './style';
 
 const Switch = () => {
-    const [ativado, setAtivado] = useState(false);
+    const [active, setActive] = useState(false);
+
+    const handleChangeDarkMode = () => {
+        setActive(!active);
+    };
 
     return (
-        <>
-            <button>
-                {!ativado &&
-                    <span>
+        <Container>
+            <Button onClick={handleChangeDarkMode}>
+                <Span darkmode={active}>
+                    {active &&
+                        <FiMoon />
+                    }
+                    {!active &&
                         <FiSun />
-                    </span>
-
-                }
-            </button>
-        </>
+                    }
+                </Span>
+            </Button>
+        </Container>
     );
 };
 

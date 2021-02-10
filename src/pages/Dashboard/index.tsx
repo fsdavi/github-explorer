@@ -1,9 +1,10 @@
 import React, { FormEvent, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Title, Form, Repositories, Error } from './styles';
+import { Title, Form, Repositories, Error, ContainerDashboard } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
 import api from '../../services/api';
 
+import Switch from '../../components/Switch';
 import logoImg from '../../assets/Logo.svg';
 
 interface Repository {
@@ -55,8 +56,9 @@ const Dashboard: React.FC = () => {
     }
 
     return (
-        <>
+        <ContainerDashboard>
             <img src={logoImg} alt="Github Explorer" />
+            <Switch />
             <Title>Explore repositórios no Github</Title>
             <Form onSubmit={handleAddRepository}
                 hasError={!!inputError}
@@ -83,7 +85,7 @@ const Dashboard: React.FC = () => {
                 </Link>)
                 )}
             </Repositories>
-        </>
+        </ContainerDashboard>
     );
 }
 

@@ -5,6 +5,10 @@ interface FormProps {
     hasError: boolean
 }
 
+export const ContainerDashboard = styled.section`
+    position: relative;
+`;
+
 export const Title = styled.h1`
     font-size: 48px;
     color: #3A3A3A;

@@ -31,7 +31,6 @@ export const DarkModeProvider: React.FC = ({ children }) => {
         handleChangeTheme(!activated);
     };
 
-
     return (
         <DarkModeContext.Provider value={{
             activated,
