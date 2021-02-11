@@ -1,9 +1,9 @@
-import React, { FormEvent, useState, useEffect } from 'react';
+import React, { FormEvent, useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Title, Form, Repositories, Error, ContainerDashboard } from './styles';
 import { FiChevronRight } from 'react-icons/fi';
 import api from '../../services/api';
-
+import { DarkModeContext } from '../../contexts/darkmode';
 import Switch from '../../components/Switch';
 import logoImg from '../../assets/Logo.svg';
 
@@ -29,6 +29,8 @@ const Dashboard: React.FC = () => {
 
         return [];
     });
+
+    const { activated } = useContext(DarkModeContext);
 
     useEffect(() => {
         localStorage.setItem('@GithubExplorer:repositories', JSON.stringify(repositories));
@@ -56,10 +58,10 @@ const Dashboard: React.FC = () => {
     }
 
     return (
-        <ContainerDashboard>
+        <ContainerDashboard >
             <img src={logoImg} alt="Github Explorer" />
             <Switch />
-            <Title>Explore repositórios no Github</Title>
+            <Title darkMode={activated}>Explore repositórios no Github</Title>
             <Form onSubmit={handleAddRepository}
                 hasError={!!inputError}
             >

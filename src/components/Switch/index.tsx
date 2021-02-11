@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { Button, Span, Container } from './style';
+import { DarkModeContext } from '../../contexts/darkmode';
 
 const Switch = () => {
-    const [active, setActive] = useState(false);
-
-    const handleChangeDarkMode = () => {
-        setActive(!active);
-    };
+    const { activated, handleChangeActivated } = useContext(DarkModeContext);
 
     return (
         <Container>
-            <Button onClick={handleChangeDarkMode}>
-                <Span darkmode={active}>
-                    {active &&
+            <Button onClick={handleChangeActivated} darkmode={activated}>
+                <Span darkmode={activated}>
+                    {activated &&
                         <FiMoon />
                     }
-                    {!active &&
+                    {!activated &&
                         <FiSun />
                     }
                 </Span>

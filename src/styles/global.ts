@@ -1,7 +1,11 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 import Github from '../assets/Github.svg';
 
-export default createGlobalStyle`
+interface DarkMode {
+    darkMode: boolean;
+}
+
+export default createGlobalStyle<DarkMode>`
     * {
         margin: 0;
         padding: 0;
@@ -12,6 +16,11 @@ export default createGlobalStyle`
     body {
         background: #F0F0F5 url(${Github}) no-repeat 70% top;
         -webkit-font-smooth: antialiased;
+
+        ${(props) => props.darkMode && css`
+            background: #36365C  url(${Github}) no-repeat 70% top;
+            -webkit-font-smooth: antialiased !important;
+        `};
     }
 
     body, input {

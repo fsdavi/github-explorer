@@ -1,4 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface DarkMode {
+    darkMode: boolean;
+}
 
 export const Header = styled.header`
     display: flex;
@@ -22,7 +26,7 @@ export const Header = styled.header`
     }
 `;
 
-export const RepositoryInfo = styled.section`
+export const RepositoryInfo = styled.section<DarkMode>`
     margin-top: 80px;
 
     header {
@@ -41,12 +45,20 @@ export const RepositoryInfo = styled.section`
             strong {
                 font-size: 36px;
                 color: #3d3d4d;
+
+                ${(props) => props.darkMode && css`
+                    color: #fff;
+                `};
             }
 
             p {
                 font-size: 18px;
                 color: #737380;
                 margin-top: 4px;
+
+                ${(props) => props.darkMode && css`
+                    color: #fff;
+                `};
             }
         }
 
@@ -65,12 +77,20 @@ export const RepositoryInfo = styled.section`
                     display: block;
                     font-size: 36px;
                     color: #3d3d4d;
+
+                    ${(props) => props.darkMode && css`
+                    color: #fff;
+                `};
                 }
 
                 span { 
                     display: block;
                     margin-top: 4px;
                     color: #6c6c80;
+
+                    ${(props) => props.darkMode && css`
+                    color: #fff;
+                `};
                 }
             }
         }

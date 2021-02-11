@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { Header, RepositoryInfo, Issues } from './styles';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import api from '../../services/api';
-
+import { DarkModeContext } from '../../contexts/darkmode';
 import logoImg from '../../assets/Logo.svg'
 
 interface RepositoryParams {
@@ -35,6 +35,7 @@ const Repository: React.FC = () => {
     const [repository, setRepository] = useState<RepositoryData | null>(null);
     const [issues, setIssues] = useState<Issue[]>([]);
     const { params } = useRouteMatch<RepositoryParams>();
+    const { activated } = useContext(DarkModeContext);
 
     useEffect(() => {
         api.get(
@@ -58,7 +59,7 @@ const Repository: React.FC = () => {
             </Link>
             </Header>
 
-            {repository && <RepositoryInfo>
+            {repository && <RepositoryInfo darkMode={activated}>
                 <header>
                     <img src={repository?.owner.avatar_url} alt={repository.owner.login} />
                     <div>

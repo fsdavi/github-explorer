@@ -5,17 +5,25 @@ interface FormProps {
     hasError: boolean
 }
 
+interface DarkMode {
+    darkMode: boolean;
+}
+
 export const ContainerDashboard = styled.section`
     position: relative;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h1<DarkMode>`
     font-size: 48px;
     color: #3A3A3A;
     max-width: 450px;
     line-height: 56px;
 
     margin-top: 80px;
+
+    ${(props) => props.darkMode && css`
+        color: #fff;
+    `};
 `;
 
 export const Form = styled.form<FormProps>`
