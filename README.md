@@ -29,12 +29,12 @@
 The github explorer its just a application while im studying ReactJS, I applied some concepts I learned, such as using the context API, in addition to deepening my knowledge in styled-components and how to create a dark mode by passing just one property.
 
 ## 📸 Screenshots
-<img alt="Happy" src="./.github/dashboard_leghtmode.png">
-<img alt="Happy" src="./.github/details_leghtmode.png">
+<img alt="Dashboard" src="./.github/dashboard_lightmode.png">
+<img alt="Details" src="./.github/details_lightmode.png">
 
 ## 📸 Demo 
 <h1 align="center">
-    <img alt="Happy" src="./.github/github-explorer_gif">
+    <img alt="Github explorer" src="./.github/github-explorer_gif.gif">
  </h1>
 
 ## 🚀 Techs
